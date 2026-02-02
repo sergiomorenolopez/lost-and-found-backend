@@ -21,5 +21,10 @@ jobs:
         distribution: 'temurin'
         cache:maven: true
 
+    - name: Start services
+      uses: hoverkraft-tech/compose-action@v2.0.0
+      with:
+        compose-file: "src/main/resources/db/compose.yml"
+
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
